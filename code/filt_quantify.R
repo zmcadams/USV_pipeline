@@ -71,6 +71,7 @@ define_call <- function(df = sheet, file_name_input, call_number) {
   peaks <- fpeaks(spectrum, plot = F, freq = 100) %>%
     as_tibble() %>% 
     top_n(10, amp) %>% 
+    arrange(-amp) %>%
     rownames_to_column(var = 'peak') 
   
   png(filename = glue::glue('output/images/peak_frequency/peak_freq_rat-{rat_number}_time-{time_point}_call-{call_number}.png'), 
