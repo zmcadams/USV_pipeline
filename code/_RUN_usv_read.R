@@ -16,18 +16,18 @@ files <- sheet %>%
   pull(file_name) %>% 
   unique() 
 
-# dev.off()
-# for (i in 1:length(files)) {
-#   file_name_pull <- files[i]
-#   calls <- sheet %>%
-#     filter(file_name == file_name_pull) %>%
-#     nrow()
-#   for (j in 1:calls) {
-#     define_call(df = sheet, 
-#                 file_name_input = file_name_pull, 
-#                 call_number = j)
-#   }
-# }
+dev.off()
+for (i in 1:length(files)) {
+  file_name_pull <- files[i]
+  calls <- sheet %>%
+    filter(file_name == file_name_pull) %>%
+    nrow()
+  for (j in 1:calls) {
+    define_call(df = sheet, 
+                file_name_input = file_name_pull, 
+                call_number = j)
+  }
+}
 
 dev.off()
 for (i in 1:length(files)) {
